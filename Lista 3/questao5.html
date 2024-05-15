@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+<body>
+    <img id="imagem" src="imagem.jpg" alt="Imagem">
+    <button onclick="alterarTamanho(100, 100)">Pequena</button>
+    <button onclick="alterarTamanho(300, 300)">Média</button>
+    <button onclick="alterarTamanho(500, 500)">Grande</button>
+
+    <script>
+        function alterarTamanho(width, height) {
+            document.getElementById("imagem").style.width = width + "px";
+            document.getElementById("imagem").style.height = height + "px";
+        }
+    </script>
+</body>
+</html>

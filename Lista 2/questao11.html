@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números Ímpares</title>
+</head>
+<body>
+    <h1>Números Ímpares</h1>
+    <label for="numero">Digite um número positivo:</label>
+    <input type="number" id="numero">
+    <button onclick="exibirNumerosImpares()">Exibir Números Ímpares</button>
+    <div id="resultado"></div>
+
+    <script>
+        function exibirNumerosImpares() {
+            const numero = parseInt(document.getElementById("numero").value);
+            let resultado = "";
+            for (let i = 0; i <= numero; i++) {
+                if (i % 2 !== 0) {
+                    resultado += i + "<br>";
+                }
+            }
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

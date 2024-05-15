@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+</head>
+<body>
+    <h1>Jogo de Adivinhação</h1>
+    <p>O computador gerou um número aleatório entre 1 e 100. Tente adivinhar qual é em até 10 tentativas.</p>
+    <input type="number" id="palpite" placeholder="Digite seu palpite">
+    <button onclick="verificarPalpite()">Verificar Palpite</button>
+    <div id="resultado"></div>
+
+    <script>
+        const numeroSecreto = Math.floor(Math.random() * 100) + 1;
+        let tentativas = 0;
+
+        function verificarPalpite() {
+            const palpite = parseInt(document.getElementById("palpite").value);
+            tentativas++;
+
+            if (palpite === numeroSecreto) {
+                document.getElementById("resultado").innerHTML = `Parabéns! Você acertou o número em ${tentativas} tentativa(s)!`;
+            } else if (palpite < numeroSecreto) {
+                document.getElementById("resultado").innerHTML = "O número secreto é maior.";
+            } else {
+                document.getElementById("resultado").innerHTML = "O número secreto é menor.";
+            }
+
+            if (tentativas === 10 && palpite !== numeroSecreto) {
+                document.getElementById("resultado").innerHTML = `Você excedeu o número de tentativas. O número secreto era ${numeroSecreto}.`;
+            }
+        }
+    </script>
+</body>
+</html>

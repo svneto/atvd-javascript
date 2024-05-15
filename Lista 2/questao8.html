@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let continuar = true;
+let precoTotal = 0;
+
+while (continuar) {
+    const escolha = prompt("Escolha um prato do menu: pizza, hambúrguer, salada ou macarrão (ou digite 'sair' para encerrar):");
+
+    switch (escolha.toLowerCase()) {
+        case 'pizza':
+            console.log("Você escolheu pizza. Preço: R$20,00. Descrição: Deliciosa pizza feita com ingredientes frescos.");
+            precoTotal += 20;
+            break;
+        case 'hambúrguer':
+            console.log("Você escolheu hambúrguer. Preço: R$15,00. Descrição: Suculento hambúrguer com queijo, alface, tomate e molho especial.");
+            precoTotal += 15;
+            break;
+        case 'salada':
+            console.log("Você escolheu salada. Preço: R$10,00. Descrição: Salada fresca com alface, tomate, cenoura e pepino.");
+            precoTotal += 10;
+            break;
+        case 'macarrão':
+            console.log("Você escolheu macarrão. Preço: R$18,00. Descrição: Massa deliciosa com molho à sua escolha.");
+            precoTotal += 18;
+            break;
+        case 'sair':
+            continuar = false;
+            console.log("Programa encerrado.");
+            break;
+        default:
+            console.log("Opção inválida.");
+    }
+}
+
+console.log("O preço total dos pedidos é: R$" + precoTotal.toFixed(2));
+
+    </script>
+</body>
+</html>

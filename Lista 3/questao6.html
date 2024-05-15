@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 6</title>
+</head>
+<body>
+    <div id="miniaturas">
+        <img src="imagem1.png" alt="Imagem 1" onclick="exibirImagem('imagem1.png')">
+        <img src="imagem2.png" alt="Imagem 2" onclick="exibirImagem('imagem2.png')">
+        <img src="imagem3.png" alt="Imagem 3" onclick="exibirImagem('imagem3.png')">
+    </div>
+
+    <div id="imagemGrande"></div>
+
+    <script>
+        function exibirImagem(src) {
+            document.getElementById("imagemGrande").innerHTML = '<img src="' + src + '" alt="Imagem Grande">';
+        }
+    </script>
+</body>
+</html>
