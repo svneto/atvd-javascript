@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="ano" placeholder="Ano de nascimento">
+    <button onclick="verificarMaioridade()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarMaioridade() {
+            var ano = parseInt(document.getElementById("ano").value);
+            var anoAtual = 2024;
+
+            if ((anoAtual - ano) >= 18) {
+                document.getElementById("resultado").innerText = "Você é maior de idade.";
+            } else {
+                document.getElementById("resultado").innerText = "Você é menor de idade.";
+            }
+        }
+    </script>
+</body>
+</html>

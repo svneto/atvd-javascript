@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Escolha seu pedido: pizza, hamburguer, salada ou macarrao. </h1>
+    <input type="text" id="pedido">
+    <button onclick="adicionarPedido()">Adicionar Pedido</button>
+    <button onclick="calcularTotal()">Calcular Total</button>
+    <p id="pedidos"></p>
+    <p id="resultado"></p>
+
+    <script>
+        var total = 0;
+        var pedidos = [];
+
+        function adicionarPedido() {
+            var descricao = document.getElementById("pedido").value.trim();
+            var preco;
+
+            switch (descricao.toLowerCase()) {
+                case "pizza":
+                    preco = 25.00;
+                    break;
+                case "hamburguer":
+                    preco = 15.00;
+                    break;
+                case "salada":
+                    preco = 10.00;
+                    break;
+                case "macarrao":
+                    preco = 20.00;
+                    break;
+                default:
+                    preco = 0.00;
+                    descricao = "Opção inválida.";
+            }
+
+            if (preco > 0) {
+                total += preco;
+                pedidos.push(descricao);
+                document.getElementById("pedidos").innerText += descricao + " - R$ " + preco.toFixed(2) + "\n";
+                document.getElementById("pedido").value = "";
+            } else {
+                alert("Opção inválida.");
+            }
+        }
+
+        function calcularTotal() {
+            var resultado = "Total: R$ " + total.toFixed(2);
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</body>
+</html>

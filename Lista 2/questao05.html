@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="temp" placeholder="Temperatura">
+    <select id="tipo">
+        <option value="celsius">Celsius para Fahrenheit</option>
+        <option value="fahrenheit">Fahrenheit para Celsius</option>
+    </select>
+    <button onclick="converterTemperatura()">Converter</button>
+    <p id="resultado"></p>
+
+    <script>
+        function converterTemperatura() {
+            var temperatura = parseFloat(document.getElementById("temp").value);
+            var tipo = document.getElementById("tipo").value;
+            var resultado;
+
+            if (tipo === "celsius") {
+                resultado = (temperatura * 1.8) + 32;
+                document.getElementById("resultado").innerText = temperatura + "°C = " + resultado + "°F";
+            } else {
+                resultado = (temperatura - 32) * 1.8;
+                document.getElementById("resultado").innerText = temperatura + "°F = " + resultado + "°C";
+            }
+        }
+    </script>
+</body>
+</html>
