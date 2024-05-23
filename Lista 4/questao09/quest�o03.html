@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Média</title>
+</head>
+<body>
+
+<h1>Calculadora de Média</h1>
+
+<script>
+const calcularMedia = () => {
+    let numero1 = parseFloat(prompt("Digite o primeiro número:"));
+    let numero2 = parseFloat(prompt("Digite o segundo número:"));
+    let numero3 = parseFloat(prompt("Digite o terceiro número:"));
+
+    let media = (numero1 + numero2 + numero3) / 3;
+
+    let mediaFormatada = media.toFixed(2);
+
+    alert(`A média dos números ${numero1}, ${numero2} e ${numero3} é: ${mediaFormatada}`);
+}
+
+calcularMedia();
+</script>
+
+</body>
+</html>

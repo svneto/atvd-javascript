@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jogo de Adivinhação</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    h1 {
+        color: #333;
+    }
+    #jogo {
+        display: none;
+        margin-top: 20px;
+    }
+    #mensagem {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<h1>Jogo de Adivinhação</h1>
+
+<button onclick="iniciarJogo()">Iniciar Jogo</button>
+
+<div id="jogo">
+    <p>O computador escolheu um número entre 1 e 100. Tente adivinhar qual é!</p>
+    
+    <label for="palpite">Seu palpite:</label>
+    <input type="number" id="palpite">
+    <button onclick="adivinharNumero()">Adivinhar</button>
+
+    <p id="mensagem"></p>
+</div>
+
+<script>
+let numeroSecreto;
+let tentativasRestantes;
+
+function iniciarJogo() {
+    // Esconder o botão de iniciar jogo e mostrar a área do jogo
+    document.querySelector('button').style.display = 'none';
+    document.getElementById('jogo').style.display = 'block';
+
+    // Gerar um número aleatório entre 1 e 100
+    numeroSecreto = Math.floor(Math.random() * 100) + 1;
+    tentativasRestantes = 10;
+
+    // Limpar o campo de palpite e a mensagem
+    document.getElementById('palpite').value = '';
+    document.getElementById('mensagem').textContent = '';
+}
+
+function adivinharNumero() {
+    // Obter o palpite do usuário
+    let palpite = parseInt(document.getElementById('palpite').value);
+
+    // Verificar se o palpite é válido
+    if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+        alert("Por favor, digite um número válido entre 1 e 100.");
+        return;
+    }
+
+    // Decrementar o número de tentativas restantes
+    tentativasRestantes--;
+
+    // Verificar se o palpite está correto, maior ou menor que o número secreto
+    if (palpite === numeroSecreto) {
+        exibirMensagem(`Parabéns! Você acertou o número ${numeroSecreto} com ${10 - tentativasRestantes} tentativa(s) restante(s).`, true);
+        finalizarJogo();
+    } else if (tentativasRestantes === 0) {
+        exibirMensagem(`Fim de jogo! O número secreto era ${numeroSecreto}.`, false);
+        finalizarJogo();
+    } else if (palpite < numeroSecreto) {
+        exibirMensagem(`Tente novamente. O número secreto é maior. Tentativas restantes: ${tentativasRestantes}`, false);
+    } else {
+        exibirMensagem(`Tente novamente. O número secreto é menor. Tentativas restantes: ${tentativasRestantes}`, false);
+    }
+}
+
+function exibirMensagem(mensagem, acertou) {
+    let mensagemElement = document.getElementById('mensagem');
+    mensagemElement.textContent = mensagem;
+    mensagemElement.style.color = acertou ? 'green' : 'red';
+}
+
+function finalizarJogo() {
+    // Mostrar novamente o botão de iniciar jogo e esconder a área do jogo
+    document.querySelector('button').style.display = 'block';
+    document.getElementById('jogo').style.display = 'none';
+}
+
+</script>
+
+</body>
+</html>

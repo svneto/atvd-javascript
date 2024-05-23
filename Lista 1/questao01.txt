@@ -1,5 +1,0 @@
-Variáveis em programação são nomes associados a valores 
-ou localizações de armazenamento na memória do computador.
-Elas são necessárias para armazenar, manipular, comunicar 
-e controlar o fluxo de dados em um programa, proporcionando 
-flexibilidade e reutilização de código.
